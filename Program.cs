@@ -89,6 +89,32 @@
         }
         return true;
       }
+
+      //https://leetcode.com/problems/binary-search/
+      public static int BinarySearch(int[] nums, int target, int lo, int hi)
+      {
+        if (hi < lo)
+        {
+          return -1;
+        }
+
+        int mid = lo + (hi - lo) / 2;
+        int midValue = nums[mid];
+        if (target < midValue)
+        {
+          return BinarySearch(nums, target, lo, mid - 1);
+        }
+        else if (target > midValue)
+        {
+          return BinarySearch(nums, target, mid + 1, hi);
+        }
+        else
+        {
+          return mid;
+        }
+      }
+
+
     }
   }
 }
